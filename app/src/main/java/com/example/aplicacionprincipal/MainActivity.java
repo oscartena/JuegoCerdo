@@ -1,5 +1,6 @@
 package com.example.aplicacionprincipal;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -42,20 +43,31 @@ public class MainActivity extends AppCompatActivity {
 
                 if (turnoPlayer1) {
                     if (numero != 1) {
-                        puntuacionActual = puntuacionActual + numero;
-                        binding.contador1.setText("Puntuacion: " + puntuacionActual);
+                        puntuacionActual = numero;
+                        puntuacion1 += puntuacionActual;
+                        binding.contador1.setText("Puntos: " + puntuacion1);
+                        if (puntuacion1>=100){
+                            binding.mensajeVictoria.setText("Player 1 victory");
+                            binding.mensajeVictoria.setVisibility(View.VISIBLE);
+                        }
+
                     } else {
                         puntuacionActual=0;
-                        binding.contador1.setText("Puntuacion: "+puntuacionActual);
+                        binding.contador1.setText("Puntos: "+puntuacionActual);
                         turnoPlayer1=false;
                     }
                 }
                 else if (numero != 1) {
-                    puntuacionActual = puntuacionActual + numero;
-                    binding.contador2.setText("Puntuacion: " + puntuacionActual);
+                    puntuacionActual = numero;
+                    puntuacion2 += puntuacionActual;
+                    binding.contador2.setText("Puntos: " + puntuacion2);
+                    if (puntuacion2>=100){
+                        binding.mensajeVictoria.setText("Player 2 victory");
+                        binding.mensajeVictoria.setVisibility(View.VISIBLE);
+                    }
                 } else {
                     puntuacionActual=0;
-                    binding.contador2.setText("Puntuacion: "+puntuacionActual);
+                    binding.contador2.setText("Puntos: "+puntuacionActual);
                     turnoPlayer1 = true;
                 }
 
